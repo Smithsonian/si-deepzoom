@@ -1,28 +1,19 @@
-#!/usr/bin/env python3
-
-from setuptools import setup, find_packages
-
-setup(
-    name="DeepZoomTools",
-    version="2.0.0",
-    author="Daniel Gasienica",
-    author_email="daniel@gasienica.ch",
-    description="Python tools for generating Deep Zoom images (DZI) and \
-collections (DZC) for the use with Silverlight Deep Zoom, Seadragon Ajax, \
-Seadragon Mobile, and OpenZoom.",
-    keywords="deepzoom seadragon dzi dzc seadragonajax seadragonmobile silverlightdeepzoom microsoft openzoom",
-    packages=find_packages(),
-    license="BSD 3-Clause License",
-    install_requires=["Pillow>=6"],
-    url="https://github.com/openzoom/deepzoom.py",
-    include_package_data=True,
+# -*- coding: utf-8 -*-
+from setuptools import setup
+setup (
+    name='DeepZoomTools',
+    version='0.1.0',
+    description='Python tool for generating a DZI file and tiled image files for Deep Zoom',
+    url='https://github.com/muranamihdk/deepzoom3',
+    license='MIT',
     classifiers=[
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: BSD License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Topic :: Utilities",
-        "Topic :: Multimedia :: Graphics",
-        "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+        'Intended Audience :: Developers',
+        'Topic :: Multimedia :: Graphics',
+        'Topic :: Multimedia :: Graphics :: Graphics Conversion',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3 :: Only',
     ],
+    keywords='deepzoom seadragon dzi dzc seadragonajax seadragonmobile silverlightdeepzoom microsoft openzoom',
+    py_modules=['deepzoom'],
 )

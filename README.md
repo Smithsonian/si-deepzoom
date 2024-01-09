@@ -1,43 +1,13 @@
-# deepzoom.py: Python Deep Zoom Tools
+# deepzoom3
+Python tool for generating a DZI file and tiled image files for [Deep Zoom](https://msdn.microsoft.com/en-us/library/cc645077(v=vs.95).aspx).  
+This project is forked from [deepzoom.py](https://github.com/openzoom/deepzoom.py) for supporting Python 3, and supports Python 3 only.  
 
 ## Installation
 
-```bash
-git clone https://github.com/openzoom/deepzoom.py.git
-cd deepzoom.py
-python setup.py install
-```
+    git clone https://github.com/muranamihdk/deepzoom3.git
+    cd deepzoom3
+    python setup.py install
 
-## Development
+## Dependencies
 
-Install for local development:
-
-```
-python3 -m pip install -e .
-```
-
-## Example
-
-```bash
-cd examples/helloworld/
-
-# Single image (DZI)
-./helloworld-dzi.py
-
-# Collection (DZC)
-./helloworld-dzc.py
-```
-
-## Acknowledgements
-
-Initially developed by [Kapil Thangavelu](mailto:kapil.foss@gmail.com).
-Powered by [OpenZoom][].
-
-## License
-
-Licensed under the [New BSD Licence][bsd].
-
-[bsd]: http://www.opensource.org/licenses/bsd-license.php
-[openzoom]: http://openzoom.org
-[pil]: http://www.pythonware.com/products/pil
-[pillow]: https://pillow.readthedocs.io/en/stable/installation.html#basic-installation
+- [Pillow](https://pypi.python.org/pypi/Pillow/) (Python Imaging Library)
