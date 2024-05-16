@@ -251,7 +251,7 @@ class DeepZoomCollection(object):
             if not os.path.exists(tile_path):
                 tile_image = PIL.Image.new('RGB', (self.tile_size, self.tile_size))
                 q = int(self.image_quality * 100)
-                tile_image.save(tile_path, 'JPEG', quality=q)
+                tile_image.save(tile_path, 'JPEG', quality=q, icc_profile=self.image.info.get('icc_profile'))
             tile_image = PIL.Image.open(tile_path)
             source_path = '{}/{}/{}_{}.{}'.format(_get_files_path(path), level, 0, 0,
                                             descriptor.tile_format)
@@ -278,7 +278,7 @@ class DeepZoomCollection(object):
                     # have wrong dimensions (they are too large)
                     if w != e_w or h != e_h:
                         # Resize incorrect tile to correct size
-                        source_image = source_image.resize((e_w, e_h), PIL.Image.LANCZOS)
+                        source_image = source_image.resize((e_w, e_h), PIL.Image.LANCZOS, icc_profile=source_image.info.get('icc_profile'))
                         # Store new dimensions
                         w, h = e_w, e_h
                 else:
@@ -289,7 +289,7 @@ class DeepZoomCollection(object):
             x = (column % images_per_tile) * level_size
             y = (row % images_per_tile) * level_size
             tile_image.paste(source_image, (x, y))
-            tile_image.save(tile_path)
+            tile_image.save(tile_path, icc_profile=source_image.info.get('icc_profile'))
 
     def get_position(self, z_order):
         """Returns position (column, row) from given Z-order (Morton number.)"""
@@ -394,9 +394,9 @@ class ImageCreator(object):
                 with open(tile_path, 'wb') as tile_file:
                     if self.descriptor.tile_format == 'jpg':
                         jpeg_quality = int(self.image_quality * 100)
-                        tile.save(tile_file, 'JPEG', quality=jpeg_quality)
+                        tile.save(tile_file, 'JPEG', quality=jpeg_quality, icc_profile=self.image.info.get('icc_profile'))
                     else:
-                        tile.save(tile_file, self.descriptor.tile_format.upper())
+                        tile.save(tile_file, self.descriptor.tile_format.upper(), icc_profile=self.image.info.get('icc_profile'))
         # Create descriptor
         self.descriptor.save(destination)
 
