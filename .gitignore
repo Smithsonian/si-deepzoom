@@ -73,6 +73,9 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
-
+*.tif
 *.jpg
 *.png
+*.code-workspace
+
+venv
